@@ -1,0 +1,9 @@
+# poulpy-hal enables `#![feature(associated_type_defaults)]`, so this crate only builds on
+# nightly. Pinned rather than plain `nightly` so a toolchain update cannot break the build
+# out from under a benchmark run.
+#
+# This used to sit in a `[toolchain]` table inside Cargo.toml, where cargo ignored it
+# ("warning: unused manifest key: toolchain") and every build silently fell back to the
+# default toolchain -- stable, on which the crate does not compile at all.
+[toolchain]
+channel = "nightly-2026-05-14"
